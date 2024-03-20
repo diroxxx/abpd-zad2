@@ -20,7 +20,7 @@ public class GasContainer : Container, IHazardNotifier
 
     public override void load(double d)
     {
-        if (loadWeight > maxWeight)
+        if (loadWeight + d > maxWeight)
         {
             throw new OverfillException();
         }

@@ -43,10 +43,7 @@ public class LiquidContainer : Container, IHazardNotifier
             {
                  SendText(serialNumber);
             }
-                
-            
         }
-        
         
     }
 
