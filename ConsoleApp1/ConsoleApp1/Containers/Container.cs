@@ -5,28 +5,29 @@ namespace ConsoleApp1.Containers;
 
 public abstract class  Container : IContainer
 {
-    private double loadWeight { get; set; }
+    protected double loadWeight { get; set; }
     private double height { get; set; }
     private double weight { get; set; }
     private double dept { get; set; }
-    private string serialNumber { get; set; }
-    private static int counter { get; set; }
-    private double maxWeight { get; set; }
+    public string serialNumber { get; set; }
+    protected int number { get; set; }
+    protected static int counter { get; set; }
+    protected double maxWeight { get; set; }
+     
     
     
-    protected Container(double loadWeight, double height, double weight, double dept, string serialNumber, double maxWeight)
+    protected Container(double loadWeight, double height, double weight, double dept, double maxWeight)
     {
         this.loadWeight = loadWeight;
         this.height = height;
         this.weight = weight;
         this.dept = dept;
-        this.serialNumber = "KON-";
+        serialNumber = "KON-";
         this.maxWeight = maxWeight;
-        counter++;
-
+        number = counter++;
     }
 
-    public void load(double d)
+    public virtual void load(double d)
     {
         loadWeight += weight;
         if (loadWeight > maxWeight)
@@ -35,10 +36,15 @@ public abstract class  Container : IContainer
         }
     }
 
-    public void unload()
+    public virtual void unload()
     {
-        weight = 0;
-        
+        loadWeight = 0;
     }
+    
+  public override string ToString()
+      {
+          return
+              $"-----\nload weight: {loadWeight}\nheight: {height}\nweight: {weight}\ndept: {dept}\nserial number: {serialNumber}\nmax weight: {maxWeight}\n";
+      }
     
 }

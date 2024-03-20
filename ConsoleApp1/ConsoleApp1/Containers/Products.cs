@@ -2,5 +2,5 @@
 
 public enum Products
 {
-    Banana, Chocolate
+    Banana=132, Chocolate
 }
